@@ -20,55 +20,68 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
-  readproducts();
+  displayeverything();
 })
 
-// function which prompts the user with two questions
-//Product ID and Product Quantity
-function readproducts() {
-  inquirer
-    .prompt([
-      {
-        name: "item_id",
-        type: "input",
-        message: "What is the item the ID of the item you would like to purchase?"
-      },
-      {
-        name: "stock_quantity",
-        type: "input",
-        message: "How many of these items would you like?"
-      }
-    ])
-    // THEN it concole logs ("writes") the users answers
-    .then(function (ans) {
-      if (ans.item_id) {
-        console.log(ans.item_id);
-      }
-      else {
-        console.log(ans.stock_quantity);
-      }
-    })
-  displayeverything();
-};
-
+// function which displays all of the items available for sale
 function displayeverything() {
-  var query = connection.query("SELECT * FROM products", function (_err, res) {
+// console logs all of the items available for sale
+  console.log("Here all of the items available for sale:\n");
+  connection.query("SELECT * FROM products", function (err, res) {
+    if (err) throw err;
     for (var i = 0; i < res.length; i++) {
-      if (stock.stock_quantity < parseInt(stock.quan)) {
-        inquirer
-          .prompt(
-            // update db
-            connection.query(
-              "UPDATE products SET ?",
-              [
-                {
-                  stock_quantity: stock.quan
-                },
-              ],
+      console.log("Item ID: " + res[i].item_ID + "Product Name: " + res[i].product_name + "Department Name: " + res[i].department_name + "Price: " + res[i].price + "Stock Quantity: " + res[i].stock_quantity);
+    }
+  });
+  readproducts();
+
+  // function which prompts the user with two questions
+  //Product ID and Product Quantity
+  function readproducts() {
+    inquirer
+      .prompt([
+        {
+          name: "item_id",
+          type: "input",
+          message: "What is the item the ID of the item you would like to purchase?"
+        },
+        {
+          name: "stock_quantity",
+          type: "input",
+          message: "How many of these items would you like?"
+        }
+      ])
+      // THEN it concole logs ("writes") the users answers
+      .then(function (ans) {
+        if (ans.item_id) {
+          console.log(ans.item_id);
+        }
+        else {
+          console.log(ans.stock_quantity);
+        }
+      })
+    updateeverything();
+  };
+
+  function updateeverything() {
+    var query = connection.query("SELECT * FROM products", function (_err, res) {
+      for (var i = 0; i < res.length; i++) {
+        if (stock.stock_quantity < parseInt(stock.quan)) {
+          inquirer
+            .prompt(
+              // update db
+              connection.query(
+                "UPDATE products SET ?",
+                [
+                  {
+                    stock_quantity: stock.quan
+                  },
+                ],
                 console.log(query.stock_quantity)
               )
-          )
+            )
+        }
       }
-    }
-  })
+    })
+  }
 };
