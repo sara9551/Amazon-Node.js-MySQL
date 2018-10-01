@@ -25,7 +25,7 @@ connection.connect(function (err) {
 
 // function which displays all of the items available for sale
 function displayeverything() {
-  // selects all from products
+  // selects all from products and puts into new line
   connection.query("SELECT * FROM products" + "\n", function (err, res) {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
@@ -64,7 +64,8 @@ function displayeverything() {
   };
 
   function updateeverything() {
-    var query = connection.query("SELECT * FROM products", function (_err, res) {
+    // query the database for all items from products
+    connection.query("SELECT * FROM products", function (_err, res) {
       for (var i = 0; i < res.length; i++) {
         if (res.stock_quantity < parseInt(res.quan)) {
           inquirer
