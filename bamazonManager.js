@@ -24,13 +24,14 @@ connection.connect(function (err) {
 })
 
 
-// function which prompts the user for what action, from the menu, the would like to take
+// function which prompts the user for what action, from the menu, they would like to take
 function readproducts() {
     inquirer.prompt([
 		{
 			type: "list",
 			name: "option",
-			message: "Select an option:",
+            message: "Select an option:",
+            // these are the options the user will see in the menu and that he will be able to "click"
             choices: ["View Products for Sale", "View Low Inventory", "Add to Inventory", "Add New Product"]
         }
     ])
