@@ -31,13 +31,13 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("snacks", "amazonFresh", 7.68, 167);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("golf driver", "sports", 1999, 45);
+VALUES ("golf driver", "sports", 80, 45);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("yoga mat", "sports", 1999, 36);
+VALUES ("yoga mat", "sports", 19.99, 36);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("headphones", "eletronics", 115, 67);
+VALUES ("headphones", "eletronics", 90, 67);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("vynil", "music", 45.87, 89);
