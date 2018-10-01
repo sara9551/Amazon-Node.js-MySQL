@@ -21,7 +21,7 @@ connection.connect(function (err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
   displayeverything();
-})
+});
 
 // function which displays all of the items available for sale
 function displayeverything() {
@@ -39,8 +39,7 @@ function displayeverything() {
   //Product ID and Product Quantity
   function readproducts() {
     inquirer
-      .prompt([
-        {
+      .prompt([{
           name: "item_id",
           type: "input",
           message: "What is the item the ID of the item you would like to purchase? \n",
@@ -55,34 +54,20 @@ function displayeverything() {
       .then(function (ans) {
         if (ans.item_id) {
           console.log(ans.item_id);
-        }
-        else {
+        } else {
           console.log(ans.stock_quantity);
         }
       })
-    updateeverything();
-  };
-
-  function updateeverything() {
-    // query the database for all items from products
-    connection.query("SELECT * FROM products", function (_err, res) {
-      for (var i = 0; i < res.length; i++) {
-        if (res.stock_quantity < parseInt(res.quan)) {
-          inquirer
-            .prompt(
-              //this updates the data base, specifically the stock quantity
-              connection.query(
-                "UPDATE products SET ?",
-                [
-                  {
-                    stock_quantity: res.quan
-                  },
-                ],
-                console.log(query.stock_quantity)
-              )
-            )
-        }
-      }
-    })
+      .then(function (_res) {
+        // query the database for all items from products
+        connection.query("SELECT * FROM products  WHERE ?", function (_err, res) {(
+            "UPDATE products SET ?",
+            [{
+              stock_quantity: _res.stock
+            }, ],
+            console.log(query.stock_quantity)
+          )
+        });
+      });
   }
-};
+}
