@@ -43,7 +43,7 @@ function displayeverything() {
         {
           name: "item_id",
           type: "input",
-          message: "What is the item the ID of the item you would like to purchase?"
+          message: "What is the item the ID of the item you would like to purchase? \n",
         },
         {
           name: "stock_quantity",
