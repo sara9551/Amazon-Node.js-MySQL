@@ -25,17 +25,17 @@ connection.connect(function (err) {
 
 // function which displays all of the items available for sale
 function displayeverything() {
-// console logs all of the items available for sale
-  console.log("Here all of the items available for sale:\n");
-  connection.query("SELECT * FROM products", function (err, res) {
+  // selects all from products
+  connection.query("SELECT * FROM products" + "\n", function (err, res) {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
-      console.log("Item ID: " + res[i].item_ID + "Product Name: " + res[i].product_name + "Department Name: " + res[i].department_name + "Price: " + res[i].price + "Stock Quantity: " + res[i].stock_quantity);
+      // console logs all of the items available for sale using the "IDs" from SQL table
+      console.log("Item ID: " + res[i].item_ID + " Product Name: " + res[i].product_name + " Department Name: " + res[i].department_name + " Price: " + res[i].price + " Stock Quantity: " + res[i].stock_quantity);
     }
   });
   readproducts();
 
-  // function which prompts the user with two questions
+  // function which prompts the user with two questions:
   //Product ID and Product Quantity
   function readproducts() {
     inquirer
@@ -51,7 +51,7 @@ function displayeverything() {
           message: "How many of these items would you like?"
         }
       ])
-      // THEN it concole logs ("writes") the users answers
+      // THEN, it concole logs ("writes") the users answers
       .then(function (ans) {
         if (ans.item_id) {
           console.log(ans.item_id);
@@ -66,15 +66,15 @@ function displayeverything() {
   function updateeverything() {
     var query = connection.query("SELECT * FROM products", function (_err, res) {
       for (var i = 0; i < res.length; i++) {
-        if (stock.stock_quantity < parseInt(stock.quan)) {
+        if (res.stock_quantity < parseInt(res.quan)) {
           inquirer
             .prompt(
-              // update db
+              //this updates the data base, specifically the stock quantity
               connection.query(
                 "UPDATE products SET ?",
                 [
                   {
-                    stock_quantity: stock.quan
+                    stock_quantity: res.quan
                   },
                 ],
                 console.log(query.stock_quantity)
