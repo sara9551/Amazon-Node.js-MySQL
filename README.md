@@ -15,7 +15,7 @@ It will take in orders from customers and update the database for all items in s
 
 ![Part 1 - Not Working](images/part.2.partial.png)
 
-#Technologies Used
+##Technologies Used
 
 This app uses:
 
@@ -24,7 +24,7 @@ This app uses:
 * MySQL
 
 
-#Intructions:
+##Intructions:
 
 Clone the files and run using bamazonCustomer.js and bamazonManager.js in the command line
 *** Remember to npm install all packages (inquirer and mySQL)
