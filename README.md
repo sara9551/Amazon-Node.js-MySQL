@@ -9,11 +9,11 @@ It will take in orders from customers and update the database for all items in s
 The following images illstrate:
 
 
-![alt text](images/part 1 working.png "Description goes here")
+![Part 1 - Working](images/part.1.working.png)
 
-![alt text](images/part 1 working + error.png "Description goes here")
+![Part 2 - Partial](images/part.1.working+error.png)
 
-![alt text](images/part 2 partial.png "Description goes here")
+![Part 1 - Not Working](images/part.2.partial.png)
 
 #Technologies Used
 
