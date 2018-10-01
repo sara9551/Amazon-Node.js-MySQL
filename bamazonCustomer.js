@@ -30,7 +30,7 @@ function displayeverything() {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
       // console logs all of the items available for sale using the "IDs" from SQL table
-      console.log("Item ID: " + res[i].item_ID + " Product Name: " + res[i].product_name + " Department Name: " + res[i].department_name + " Price: " + res[i].price + " Stock Quantity: " + res[i].stock_quantity);
+      console.log("Item ID: " + res[i].item_id + " Product Name: " + res[i].product_name + " Department Name: " + res[i].department_name + " Price: " + res[i].price + " Stock Quantity: " + res[i].stock_quantity);
     }
   });
   readproducts();
