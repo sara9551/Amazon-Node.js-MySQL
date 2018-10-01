@@ -1,17 +1,17 @@
-## Amazon-Node.js-MySQL
-
-#Overview
+## Amazon-Node.js-MySQL ##
 
 This app creates an Amazon-like storefront with MySQL. 
 
 It will take in orders from customers and update the database for all items in stock from the store's inventory.
 
-The following images illstrate:
+* The following images illstrate:
 
 
 ![Part 1 - Working](images/part.1.working.png)
 
+
 ![Part 2 - Partial](images/part.1.working+error.png)
+
 
 ![Part 1 - Not Working](images/part.2.partial.png)
 
@@ -19,9 +19,9 @@ The following images illstrate:
 
 This app uses:
 
-Node and Express Servers
-JQuery
-MySQL
+* Node and Express Servers
+* JQuery
+* MySQL
 
 
 #Intructions:
